@@ -1,0 +1,323 @@
+#include "include/dt-bindings/gpio/gpio.h"
+#include "include/dt-bindings/phy/phy.h"
+#include "include/dt-bindings/input/input.h"
+
+/ {
+	chosen {
+		bootargs = "console=ttyAMA0 earlycon=pl011,mmio32,0xFF000000,115200n8";
+		stdout-path = "serial0:115200";
+	};
+
+	aliases {
+		serial0 = &serial0;
+/*		serial2 = &dcc;*/
+		i2c0 = &i2c0;
+		i2c2 = &i2c2;
+		mmc0 = &sdhci1;
+		mmc1 = &sdhci0;
+		spi0 = &ospi;
+		usb0 = &usb0;
+		rtc0 = &rtc;
+		sysmon0 = &sysmon0;
+		can0 = &can0;
+		can1 = &can1;
+		ttc0 = &ttc0;
+		nvmem0 = &mac_eeprom;
+	};
+
+	pwm-fan {
+		compatible = "pwm-fan";
+		#cooling-cells = <2>;
+		pwms = <&ttc0 2 40000 0>;
+		cooling-levels = <0 64 128 255>;
+	};
+};
+
+/* SD_BUSPWR - PMC MIO49 */
+/* PMC_LED_2 - PMC MIO48 */
+/* PMC_LED_1 - PMC MIO47 */
+/* PMC_PB_2 - PMC MIO46 */
+/* PMC_PB_1 - PMC MIO37 */
+/* PMC_I2C_EXP_RST_B - MIO28 */
+/* PMC_INT_B - MIO11 */
+/* CAN0_NSTB - LPD MIO12 */
+/* CAN1_NSTB - LPD MIO13 */
+
+&ospi { /* PMC MIO0-10, 12, U3 MT35XU02G or MT35X512M */
+	bus-num = <2>;
+	num-cs = <1>;
+	#stream-id-cells = <1>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	flash0:flash@0 {
+		compatible = "mt35xu02g", "micron,m25p80", "jedec,spi-nor";
+		reg = <0>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		cdns,read-delay = <0>;
+		cdns,tshsl-ns = <0>;
+		cdns,tsd2d-ns = <0>;
+		cdns,tchsh-ns = <1>;
+		cdns,tslch-ns = <1>;
+		spi-tx-bus-width = <8>;
+		spi-rx-bus-width = <8>;
+		spi-max-frequency = <20000000>;
+		no-wp;
+		reset-gpios = <&gpio1 12 GPIO_ACTIVE_LOW>;
+		partition@0 {
+			label = "spi0-boot";
+			reg = <0x00000000 0x01000000>;
+		};
+		partition@1 {
+			label = "spi0-image";
+			reg = <0x01000000 0x06f80000>;
+		};
+		partition@2 {
+			label = "spi0-scr";
+			reg = <0x07f80000 0x00040000>;
+		};
+		partition@3 {
+			label = "spi0-user";
+			reg = <0x07fc0000 0x08040000>;
+		};
+	};
+};
+
+&usb0 {
+	status = "okay";
+};
+
+&dwc3_0 { /* USB 2.0 host */
+	status = "okay";
+	dr_mode = "host";
+	maximum-speed = "high-speed";
+	snps,dis_u2_susphy_quirk;
+	snps,dis_u3_susphy_quirk;
+	snps,usb3_lpm_capable;
+};
+
+&sdhci0 { /* PMC_MIO38-45/49 */
+	status = "okay";
+	xlnx,mio-bank = <1>;
+	no-1-8-v;
+};
+
+&sdhci1 { /* PMC_MIO26-27/29-36 */
+	status = "okay";
+	bus-width = <8>;
+};
+
+&gem0 { /* PMC_MIO_48, LPD_MIO0-11/24/25 */
+	status = "okay";
+	phy-handle = <&phy0>;
+	phy-mode = "rgmii-id";
+   nvmem-cells = <&mac_address>;
+   nvmem-cell-names = "mac-address";
+	mdio: mdio {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		phy0: ethernet-phy@7 { /* U7 - KSZ9131RNXI */
+			#phy-cells = <1>;
+			reg = <0x7>;
+		};
+	};
+};
+
+&i2c0 { 
+	status = "okay";
+	bootph-all;
+	clock-frequency = <100000>;
+
+	i2cexpander0: fxl6408@44 {
+		compatible = "fcs,fxl6408";
+		reg = <0x44>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+	
+	i2cswitch@70 { /* U14 on VE2302-SOM */
+		compatible = "nxp,pca9548";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x70>;
+	
+		i2c@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x0>;
+		};
+
+		i2c@1 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x1>;
+		};
+		
+		i2c@2 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x2>;
+		};
+
+		i2c@3 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x3>;
+		};
+
+		i2c@4 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x4>;
+		};
+		
+		i2c@5 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x5>;
+		};
+
+		i2c@6 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x6>;
+		};
+
+		i2c@7 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x7>;
+		};	
+	};
+};
+
+&i2c2 { 
+	status = "okay";
+	bootph-all;
+	clock-frequency = <100000>;
+
+   /* Ethernet MAC ID EEPROM */
+   mac_eeprom: mac_eeprom@5c { /* U15 */
+      #address-cells = <1>;
+      #size-cells = <1>;
+      compatible = "atmel,24mac402";
+      reg = <0x5c>;
+
+      mac_address: mac-address@9A {
+         reg = <0x9A 0x06>;
+      };
+   };
+
+	eeprom: eeprom@54 { 
+		compatible = "atmel,24mac402";
+		reg = <0x54>; 
+		bootph-all;
+	};
+	
+	i2cexpander2: fxl6408@43 {
+		compatible = "fcs,fxl6408";
+		reg = <0x43>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+	
+	i2cswitch@70 { /* U14 on VE2302-SOM */
+		compatible = "nxp,pca9543";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x70>;
+	
+		i2c@0 { /* i2c mw 70 0 1 */
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0>;
+			/*
+			// ONLY HSIO CONNECTOR ATTACHED TO BUS- UNKNOWN SLAVE 
+			*/
+		};
+
+		i2c@1 {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+			reg = <0x1>;
+			/*
+			// ONLY INFINEON REGULATOR ATTACHED TO PMBUS 
+			*/
+			tda38725@40 {
+				compatible = "infineon,tda38725";
+				reg = <0x40>;
+			};
+		};
+	};
+}; 
+
+&can0 {
+	status = "okay";
+};
+
+&can1 {
+	status = "okay";
+};
+
+&ttc0 {
+	status = "okay";
+	#pwm-cells = <3>;
+};
+
+&sysmon0 {
+   compatible = "xlnx,versal-sysmon";
+   reg = <0x00 0xf1270000 0x00 0x4000>;
+   interrupts = <0x00 0x90 0x04>;
+//   xlnx,numchannels = <8>;
+   status = "okay";
+/*
+   vcc_pmc {
+   	xlnx,register = <1>;
+      xlnx,bipolar;
+   	xlnx,name = "vcc_pmc";
+   };
+
+   vcc_psfp {
+   	xlnx,register = <2>;
+      xlnx,bipolar;
+      xlnx,name = "vcc_psfp";
+   };
+
+   vcc_pslp {
+   	xlnx,register = <3>;
+      xlnx,bipolar;
+      xlnx,name = "vcc_pslp";
+   };
+ 
+   vcc_ram {
+   	xlnx,register = <4>;
+      xlnx,bipolar;
+      xlnx,name = "vcc_ram";
+   };
+
+   vcc_soc {
+   	xlnx,register = <5>;
+      xlnx,bipolar;
+      xlnx,name = "vcc_soc";
+   };
+ 
+   vccint {
+   	xlnx,register = <6>;
+      xlnx,bipolar;
+      xlnx,name = "vccint";
+   };
+ 
+   vccaux {
+   	xlnx,register = <7>;
+   	xlnx,bipolar;
+      xlnx,name = "vccaux";
+   };
+
+   vccaux_pmc {
+   	xlnx,register = <8>;
+   	xlnx,name = "vccaux_pmc";
+   };
+*/
+};
+

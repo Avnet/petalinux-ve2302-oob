@@ -1,0 +1,13 @@
+119c119,121
+<     proot = ''
+---
+>     # Original causes failure:
+>     # proot = ''
+> 
+125a128,133
+>     else:
+>         # Added below to fix proot failure for bsp cmd
+>         try:
+>             proot = args.project[0]
+>         except (args.project.DoesNotExist, args.project[0].DoesNotExist):
+>             proot = ''

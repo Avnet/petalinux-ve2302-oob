@@ -1,0 +1,11 @@
+[Unit]
+Description=Set static IP address at startup
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/set-webserver.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

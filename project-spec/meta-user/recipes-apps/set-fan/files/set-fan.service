@@ -1,0 +1,11 @@
+[Unit]
+Description=Set fan to control temperature at startup
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/set-fan.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
