@@ -20,19 +20,19 @@
 # THE SOFTWARE.
 
 PL_BLD ?= petalinux-build
-PL_PKG ?= petalinux-package-fix
+PL_PKG ?= petalinux-package
 PL_CFG ?= petalinux-config
 
 SYSTEM_XSA_LOC ?= project-spec/hw-description/system.xsa
-LOCAL_SSTATE ?= $(HOME)/local_2024p2_aarch64
-LOCAL_DL ?= $(HOME)/local_2024p2_downloads
+LOCAL_SSTATE ?= $(HOME)/local_2025p2_aarch64
+LOCAL_DL ?= $(HOME)/local_2025p2_downloads
 IMAGES_DIR ?= images/linux
 FIRMWARE_DIR ?= final-firmwares
 
 # If you change VIVADO_DIR be sure to update get-git-hash.bb
 VIVADO_DIR ?= vivado-hw
 VIVADO_GIT_REPO ?= git@github.com:Avnet/ve2302_oob_hw
-VIVADO_GIT_BRANCH_TAG ?= main
+VIVADO_GIT_BRANCH_TAG ?= dev_v2025.2
 VIVADO_XSA_LOC ?= $(VIVADO_DIR)/ve2302_oob.xsa
 PL_PACKAGE_LOC := $(shell which petalinux-package)
 WIC_LOC ?= $(FIRMWARE_DIR)/ve2302-oob-sdimage.wic
@@ -45,8 +45,7 @@ HELP_COLOR ?= 10
 	vivado_clean create_firmware check_tools
 
 # Targets
-all: check_tools $(PL_PACKAGE_LOC)-fix .petalinux/metadata build_vivado \
-		$(SYSTEM_XSA_LOC) build_bsp create_firmware
+all: check_tools .petalinux/metadata build_vivado $(SYSTEM_XSA_LOC) build_bsp create_firmware
 		@echo
 		@tput setaf 2 ; echo "Built $(WIC_LOC) successfully!"; tput sgr0;
 		@echo
@@ -72,15 +71,6 @@ build_bsp: | $(LOCAL_SSTATE) $(LOCAL_DL)
 # This allows every user to modify per build
 .petalinux/metadata: | .petalinux/metadata.original
 	cp .petalinux/metadata.original .petalinux/metadata
-
-$(PL_PACKAGE_LOC)-fix : | $(PL_PACKAGE_LOC)
-	@echo "STATUS: AMD PetaLinux 2024.2 $(PL_PACKAGE_LOC) has wic bug, creating fix: $(PL_PACKAGE_LOC)-fix";\
-	echo "NOTE: if the patch fails, it likely means you already modified your petalinux-package script.";\
-	echo "If that is the case, you can just copy your fixed version to create a new file: $(PL_PACKAGE_LOC)-fix";\
-	echo "Or you can restore your petalinux-package file to its original content and let this Makefile fix it.";\
-	echo "The original petalinux-package MD5SUM: 82e80e6e80059b2abdbe9784d970e199";\
-	patch -p0 $(PL_PACKAGE_LOC) -i patches/v2024.2-petalinux-package.patch -o "$(PL_PACKAGE_LOC)-fix";\
-	chmod +x $(PL_PACKAGE_LOC)-fix ;\
 
 $(VIVADO_DIR):
 	git clone $(VIVADO_GIT_REPO) -b $(VIVADO_GIT_BRANCH_TAG) $(VIVADO_DIR)
@@ -118,7 +108,7 @@ $(LOCAL_SSTATE):
 	@echo "HINT:"
 	@echo "To speed up the build, use local aarch64 ..."
 	@echo "First download and install the aarch64 SSTATE tarball and"
-	@echo "then: ln -s <full path, including ./aarch64> ~/local_2024p2_aarch64"
+	@echo "then: ln -s <full path, including ./aarch64> ~/local_2025p2_aarch64"
 	@echo
 
 $(LOCAL_DL):
@@ -126,7 +116,7 @@ $(LOCAL_DL):
 	@echo "HINT:"
 	@echo "To speed up the build, use local downloads ..."
 	@echo "First download and install the Downloads tarball and"
-	@echo "then: ln -s <full path, including ./downloads> ~/local_2024p2_downloads"
+	@echo "then: ln -s <full path, including ./downloads> ~/local_2025p2_downloads"
 	@echo
 
 clean:

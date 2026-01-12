@@ -4,7 +4,7 @@ processor:
     versal_cips_0_pspmc_0_psv_cortexa72_0:
         arch: aarch64
         ip_name: psv_cortexa72
-        slaves_strings: axi_gpio_0 axi_gpio_1 axi_gpio_2 axi_gpio_3 axi_noc_0 versal_cips_0_pspmc_0_psv_acpu_gic versal_cips_0_pspmc_0_psv_adma_0 versal_cips_0_pspmc_0_psv_adma_1 versal_cips_0_pspmc_0_psv_adma_2 versal_cips_0_pspmc_0_psv_adma_3 versal_cips_0_pspmc_0_psv_adma_4 versal_cips_0_pspmc_0_psv_adma_5 versal_cips_0_pspmc_0_psv_adma_6 versal_cips_0_pspmc_0_psv_adma_7 versal_cips_0_pspmc_0_psv_apu_0 versal_cips_0_pspmc_0_psv_canfd_0 versal_cips_0_pspmc_0_psv_canfd_1 versal_cips_0_pspmc_0_psv_coresight_0 versal_cips_0_pspmc_0_psv_coresight_a720_cti versal_cips_0_pspmc_0_psv_coresight_a720_dbg versal_cips_0_pspmc_0_psv_coresight_a720_etm versal_cips_0_pspmc_0_psv_coresight_a720_pmu versal_cips_0_pspmc_0_psv_coresight_a721_cti versal_cips_0_pspmc_0_psv_coresight_a721_dbg versal_cips_0_pspmc_0_psv_coresight_a721_etm versal_cips_0_pspmc_0_psv_coresight_a721_pmu versal_cips_0_pspmc_0_psv_coresight_apu_cti versal_cips_0_pspmc_0_psv_coresight_apu_ela versal_cips_0_pspmc_0_psv_coresight_apu_etf versal_cips_0_pspmc_0_psv_coresight_apu_fun versal_cips_0_pspmc_0_psv_coresight_cpm_atm versal_cips_0_pspmc_0_psv_coresight_cpm_cti2a versal_cips_0_pspmc_0_psv_coresight_cpm_cti2d versal_cips_0_pspmc_0_psv_coresight_cpm_ela2a versal_cips_0_pspmc_0_psv_coresight_cpm_ela2b versal_cips_0_pspmc_0_psv_coresight_cpm_ela2c versal_cips_0_pspmc_0_psv_coresight_cpm_ela2d versal_cips_0_pspmc_0_psv_coresight_cpm_fun versal_cips_0_pspmc_0_psv_coresight_cpm_rom versal_cips_0_pspmc_0_psv_coresight_fpd_atm versal_cips_0_pspmc_0_psv_coresight_fpd_stm versal_cips_0_pspmc_0_psv_coresight_lpd_atm versal_cips_0_pspmc_0_psv_cpm versal_cips_0_pspmc_0_psv_crf_0 versal_cips_0_pspmc_0_psv_crl_0 versal_cips_0_pspmc_0_psv_crp_0 versal_cips_0_pspmc_0_psv_ethernet_0 versal_cips_0_pspmc_0_psv_fpd_afi_0 versal_cips_0_pspmc_0_psv_fpd_afi_2 versal_cips_0_pspmc_0_psv_fpd_cci_0 versal_cips_0_pspmc_0_psv_fpd_gpv_0 versal_cips_0_pspmc_0_psv_fpd_maincci_0 versal_cips_0_pspmc_0_psv_fpd_slave_xmpu_0 versal_cips_0_pspmc_0_psv_fpd_slcr_0 versal_cips_0_pspmc_0_psv_fpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_fpd_smmu_0 versal_cips_0_pspmc_0_psv_fpd_smmutcu_0 versal_cips_0_pspmc_0_psv_gpio_2 versal_cips_0_pspmc_0_psv_i2c_0 versal_cips_0_pspmc_0_psv_ipi_0 versal_cips_0_pspmc_0_psv_ipi_1 versal_cips_0_pspmc_0_psv_ipi_2 versal_cips_0_pspmc_0_psv_ipi_3 versal_cips_0_pspmc_0_psv_ipi_4 versal_cips_0_pspmc_0_psv_ipi_5 versal_cips_0_pspmc_0_psv_ipi_6 versal_cips_0_pspmc_0_psv_ipi_buffer versal_cips_0_pspmc_0_psv_ipi_pmc versal_cips_0_pspmc_0_psv_ipi_pmc_nobuf versal_cips_0_pspmc_0_psv_ipi_psm versal_cips_0_pspmc_0_psv_lpd_afi_0 versal_cips_0_pspmc_0_psv_lpd_iou_secure_slcr_0 versal_cips_0_pspmc_0_psv_lpd_iou_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_lpd_xppu_0 versal_cips_0_pspmc_0_psv_ocm_ctrl versal_cips_0_pspmc_0_psv_ocm_ram_0 versal_cips_0_pspmc_0_psv_ocm_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_aes versal_cips_0_pspmc_0_psv_pmc_bbram_ctrl versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_0 versal_cips_0_pspmc_0_psv_pmc_cfu_apb_0 versal_cips_0_pspmc_0_psv_pmc_dma_0 versal_cips_0_pspmc_0_psv_pmc_dma_1 versal_cips_0_pspmc_0_psv_pmc_efuse_cache versal_cips_0_pspmc_0_psv_pmc_efuse_ctrl versal_cips_0_pspmc_0_psv_pmc_global_0 versal_cips_0_pspmc_0_psv_pmc_gpio_0 versal_cips_0_pspmc_0_psv_pmc_i2c_0 versal_cips_0_pspmc_0_psv_pmc_ospi_0 versal_cips_0_pspmc_0_psv_pmc_ppu1_mdm_0 versal_cips_0_pspmc_0_psv_pmc_qspi_ospi_flash_0 versal_cips_0_pspmc_0_psv_pmc_ram versal_cips_0_pspmc_0_psv_pmc_ram_npi versal_cips_0_pspmc_0_psv_pmc_rsa versal_cips_0_pspmc_0_psv_pmc_rtc_0 versal_cips_0_pspmc_0_psv_pmc_sd_0 versal_cips_0_pspmc_0_psv_pmc_sd_1 versal_cips_0_pspmc_0_psv_pmc_sha versal_cips_0_pspmc_0_psv_pmc_slave_boot versal_cips_0_pspmc_0_psv_pmc_slave_boot_stream versal_cips_0_pspmc_0_psv_pmc_sysmon_0 versal_cips_0_pspmc_0_psv_pmc_trng versal_cips_0_pspmc_0_psv_pmc_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_npi_0 versal_cips_0_pspmc_0_psv_psm_global_reg versal_cips_0_pspmc_0_psv_r5_1_atcm_global versal_cips_0_pspmc_0_psv_r5_1_btcm_global versal_cips_0_pspmc_0_psv_r5_tcm_ram_global versal_cips_0_pspmc_0_psv_rcpu_gic versal_cips_0_pspmc_0_psv_rpu_0 versal_cips_0_pspmc_0_psv_sbsauart_0 versal_cips_0_pspmc_0_psv_scntr_0 versal_cips_0_pspmc_0_psv_scntrs_0 versal_cips_0_pspmc_0_psv_ttc_0 versal_cips_0_pspmc_0_psv_usb_0 versal_cips_0_pspmc_0_psv_usb_xhci_0 versal_cips_0_pspmc_0_psv_xram_atm versal_cips_0_pspmc_0_psv_xram_bank_1 versal_cips_0_pspmc_0_psv_xram_bank_2 versal_cips_0_pspmc_0_psv_xram_bank_3 versal_cips_0_pspmc_0_psv_xram_bank_4 versal_cips_0_pspmc_0_psv_xram_ctrl_1 versal_cips_0_pspmc_0_psv_xram_ctrl_2 versal_cips_0_pspmc_0_psv_xram_ctrl_3 versal_cips_0_pspmc_0_psv_xram_ctrl_4 versal_cips_0_pspmc_0_psv_xram_global_ctrl versal_cips_0_pspmc_0_psv_xram_gpv versal_cips_0_pspmc_0_psv_xram_xmpu_bank_1 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_2 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_3 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_4
+        slaves_strings: axi_gpio_0 axi_gpio_1 axi_gpio_2 axi_gpio_3 axi_noc_0 versal_cips_0_pspmc_0_psv_acpu_gic versal_cips_0_pspmc_0_psv_adma_0 versal_cips_0_pspmc_0_psv_adma_1 versal_cips_0_pspmc_0_psv_adma_2 versal_cips_0_pspmc_0_psv_adma_3 versal_cips_0_pspmc_0_psv_adma_4 versal_cips_0_pspmc_0_psv_adma_5 versal_cips_0_pspmc_0_psv_adma_6 versal_cips_0_pspmc_0_psv_adma_7 versal_cips_0_pspmc_0_psv_apu_0 versal_cips_0_pspmc_0_psv_canfd_0 versal_cips_0_pspmc_0_psv_canfd_1 versal_cips_0_pspmc_0_psv_coresight_0 versal_cips_0_pspmc_0_psv_coresight_a720_cti versal_cips_0_pspmc_0_psv_coresight_a720_dbg versal_cips_0_pspmc_0_psv_coresight_a720_etm versal_cips_0_pspmc_0_psv_coresight_a720_pmu versal_cips_0_pspmc_0_psv_coresight_a721_cti versal_cips_0_pspmc_0_psv_coresight_a721_dbg versal_cips_0_pspmc_0_psv_coresight_a721_etm versal_cips_0_pspmc_0_psv_coresight_a721_pmu versal_cips_0_pspmc_0_psv_coresight_apu_cti versal_cips_0_pspmc_0_psv_coresight_apu_ela versal_cips_0_pspmc_0_psv_coresight_apu_etf versal_cips_0_pspmc_0_psv_coresight_apu_fun versal_cips_0_pspmc_0_psv_coresight_cpm_atm versal_cips_0_pspmc_0_psv_coresight_cpm_cti2a versal_cips_0_pspmc_0_psv_coresight_cpm_cti2d versal_cips_0_pspmc_0_psv_coresight_cpm_ela2a versal_cips_0_pspmc_0_psv_coresight_cpm_ela2b versal_cips_0_pspmc_0_psv_coresight_cpm_ela2c versal_cips_0_pspmc_0_psv_coresight_cpm_ela2d versal_cips_0_pspmc_0_psv_coresight_cpm_fun versal_cips_0_pspmc_0_psv_coresight_cpm_rom versal_cips_0_pspmc_0_psv_coresight_fpd_atm versal_cips_0_pspmc_0_psv_coresight_fpd_cti1b versal_cips_0_pspmc_0_psv_coresight_fpd_cti1c versal_cips_0_pspmc_0_psv_coresight_fpd_cti1d versal_cips_0_pspmc_0_psv_coresight_fpd_stm versal_cips_0_pspmc_0_psv_coresight_lpd_atm versal_cips_0_pspmc_0_psv_coresight_lpd_cti versal_cips_0_pspmc_0_psv_coresight_pmc_cti versal_cips_0_pspmc_0_psv_coresight_r50_cti versal_cips_0_pspmc_0_psv_coresight_r51_cti versal_cips_0_pspmc_0_psv_cpm versal_cips_0_pspmc_0_psv_crf_0 versal_cips_0_pspmc_0_psv_crl_0 versal_cips_0_pspmc_0_psv_crp_0 versal_cips_0_pspmc_0_psv_ethernet_0 versal_cips_0_pspmc_0_psv_fpd_afi_0 versal_cips_0_pspmc_0_psv_fpd_afi_2 versal_cips_0_pspmc_0_psv_fpd_cci_0 versal_cips_0_pspmc_0_psv_fpd_gpv_0 versal_cips_0_pspmc_0_psv_fpd_maincci_0 versal_cips_0_pspmc_0_psv_fpd_slave_xmpu_0 versal_cips_0_pspmc_0_psv_fpd_slcr_0 versal_cips_0_pspmc_0_psv_fpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_fpd_smmu_0 versal_cips_0_pspmc_0_psv_fpd_smmutcu_0 versal_cips_0_pspmc_0_psv_gpio_2 versal_cips_0_pspmc_0_psv_i2c_0 versal_cips_0_pspmc_0_psv_ipi_0 versal_cips_0_pspmc_0_psv_ipi_1 versal_cips_0_pspmc_0_psv_ipi_2 versal_cips_0_pspmc_0_psv_ipi_3 versal_cips_0_pspmc_0_psv_ipi_4 versal_cips_0_pspmc_0_psv_ipi_5 versal_cips_0_pspmc_0_psv_ipi_6 versal_cips_0_pspmc_0_psv_ipi_buffer versal_cips_0_pspmc_0_psv_ipi_pmc versal_cips_0_pspmc_0_psv_ipi_pmc_nobuf versal_cips_0_pspmc_0_psv_ipi_psm versal_cips_0_pspmc_0_psv_lpd_afi_0 versal_cips_0_pspmc_0_psv_lpd_iou_secure_slcr_0 versal_cips_0_pspmc_0_psv_lpd_iou_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_lpd_xppu_0 versal_cips_0_pspmc_0_psv_ocm_ctrl versal_cips_0_pspmc_0_psv_ocm_ram_0 versal_cips_0_pspmc_0_psv_ocm_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_aes versal_cips_0_pspmc_0_psv_pmc_analog_0 versal_cips_0_pspmc_0_psv_pmc_bbram_ctrl versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_0 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_1 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_10 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_11 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_12 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_13 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_14 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_2 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_3 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_4 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_5 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_6 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_7 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_8 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_9 versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_bcast versal_cips_0_pspmc_0_psv_pmc_cfu_apb_0 versal_cips_0_pspmc_0_psv_pmc_dma_0 versal_cips_0_pspmc_0_psv_pmc_dma_1 versal_cips_0_pspmc_0_psv_pmc_efuse_cache versal_cips_0_pspmc_0_psv_pmc_efuse_ctrl versal_cips_0_pspmc_0_psv_pmc_global_0 versal_cips_0_pspmc_0_psv_pmc_gpio_0 versal_cips_0_pspmc_0_psv_pmc_i2c_0 versal_cips_0_pspmc_0_psv_pmc_iou_slcr_0 versal_cips_0_pspmc_0_psv_pmc_ospi_0 versal_cips_0_pspmc_0_psv_pmc_ppu1_mdm_0 versal_cips_0_pspmc_0_psv_pmc_qspi_ospi_flash_0 versal_cips_0_pspmc_0_psv_pmc_ram versal_cips_0_pspmc_0_psv_pmc_ram_npi versal_cips_0_pspmc_0_psv_pmc_rsa versal_cips_0_pspmc_0_psv_pmc_rtc_0 versal_cips_0_pspmc_0_psv_pmc_sd_0 versal_cips_0_pspmc_0_psv_pmc_sd_1 versal_cips_0_pspmc_0_psv_pmc_sha versal_cips_0_pspmc_0_psv_pmc_slave_boot versal_cips_0_pspmc_0_psv_pmc_slave_boot_stream versal_cips_0_pspmc_0_psv_pmc_sysmon_0 versal_cips_0_pspmc_0_psv_pmc_tap versal_cips_0_pspmc_0_psv_pmc_trng versal_cips_0_pspmc_0_psv_pmc_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_npi_0 versal_cips_0_pspmc_0_psv_psm_global_reg versal_cips_0_pspmc_0_psv_r5_1_atcm_global versal_cips_0_pspmc_0_psv_r5_1_btcm_global versal_cips_0_pspmc_0_psv_r5_tcm_ram_global versal_cips_0_pspmc_0_psv_rcpu_gic versal_cips_0_pspmc_0_psv_rpu_0 versal_cips_0_pspmc_0_psv_sbsauart_0 versal_cips_0_pspmc_0_psv_scntr_0 versal_cips_0_pspmc_0_psv_scntrs_0 versal_cips_0_pspmc_0_psv_ttc_0 versal_cips_0_pspmc_0_psv_usb_0 versal_cips_0_pspmc_0_psv_usb_xhci_0 versal_cips_0_pspmc_0_psv_xram_atm versal_cips_0_pspmc_0_psv_xram_bank_1 versal_cips_0_pspmc_0_psv_xram_bank_2 versal_cips_0_pspmc_0_psv_xram_bank_3 versal_cips_0_pspmc_0_psv_xram_bank_4 versal_cips_0_pspmc_0_psv_xram_ctrl_1 versal_cips_0_pspmc_0_psv_xram_ctrl_2 versal_cips_0_pspmc_0_psv_xram_ctrl_3 versal_cips_0_pspmc_0_psv_xram_ctrl_4 versal_cips_0_pspmc_0_psv_xram_global_ctrl versal_cips_0_pspmc_0_psv_xram_gpv versal_cips_0_pspmc_0_psv_xram_xmpu_bank_1 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_2 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_3 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_4
         slaves:
             axi_noc_0_C3_DDR_LOW0:
                 device_type: memory
@@ -113,10 +113,24 @@ processor:
                 ip_name: psv_coresight_cpm_rom
             versal_cips_0_pspmc_0_psv_coresight_fpd_atm:
                 ip_name: psv_coresight_fpd_atm
+            versal_cips_0_pspmc_0_psv_coresight_fpd_cti1b:
+                ip_name: psv_coresight_fpd_cti1b
+            versal_cips_0_pspmc_0_psv_coresight_fpd_cti1c:
+                ip_name: psv_coresight_fpd_cti1c
+            versal_cips_0_pspmc_0_psv_coresight_fpd_cti1d:
+                ip_name: psv_coresight_fpd_cti1d
             versal_cips_0_pspmc_0_psv_coresight_fpd_stm:
                 ip_name: psv_coresight_fpd_stm
             versal_cips_0_pspmc_0_psv_coresight_lpd_atm:
                 ip_name: psv_coresight_lpd_atm
+            versal_cips_0_pspmc_0_psv_coresight_lpd_cti:
+                ip_name: psv_coresight_lpd_cti
+            versal_cips_0_pspmc_0_psv_coresight_pmc_cti:
+                ip_name: psv_coresight_pmc_cti
+            versal_cips_0_pspmc_0_psv_coresight_r50_cti:
+                ip_name: psv_coresight_r50_cti
+            versal_cips_0_pspmc_0_psv_coresight_r51_cti:
+                ip_name: psv_coresight_r51_cti
             versal_cips_0_pspmc_0_psv_cpm:
                 ip_name: psv_cpm
             versal_cips_0_pspmc_0_psv_crf_0:
@@ -191,9 +205,41 @@ processor:
                 ip_name: psv_ocm_xmpu
             versal_cips_0_pspmc_0_psv_pmc_aes:
                 ip_name: psv_pmc_aes
+            versal_cips_0_pspmc_0_psv_pmc_analog_0:
+                ip_name: psv_pmc_analog
             versal_cips_0_pspmc_0_psv_pmc_bbram_ctrl:
                 ip_name: psv_pmc_bbram_ctrl
             versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_0:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_1:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_10:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_11:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_12:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_13:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_14:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_2:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_3:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_4:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_5:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_6:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_7:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_8:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_9:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_bcast:
                 ip_name: psv_pmc_cfi_cframe
             versal_cips_0_pspmc_0_psv_pmc_cfu_apb_0:
                 ip_name: psv_pmc_cfu_apb
@@ -211,6 +257,8 @@ processor:
                 ip_name: psv_pmc_gpio
             versal_cips_0_pspmc_0_psv_pmc_i2c_0:
                 ip_name: psv_pmc_i2c
+            versal_cips_0_pspmc_0_psv_pmc_iou_slcr_0:
+                ip_name: psv_pmc_iou_slcr
             versal_cips_0_pspmc_0_psv_pmc_ppu1_mdm_0:
                 ip_name: psv_pmc_ppu1_mdm
             versal_cips_0_pspmc_0_psv_pmc_ram:
@@ -233,6 +281,8 @@ processor:
                 ip_name: psv_pmc_slave_boot_stream
             versal_cips_0_pspmc_0_psv_pmc_sysmon_0:
                 ip_name: psv_pmc_sysmon
+            versal_cips_0_pspmc_0_psv_pmc_tap:
+                ip_name: psv_pmc_tap
             versal_cips_0_pspmc_0_psv_pmc_trng:
                 ip_name: psv_pmc_trng
             versal_cips_0_pspmc_0_psv_pmc_xmpu_0:

@@ -2555,27 +2555,6 @@ CONFIG_linux-xlnx-udev-rules=y
 # CONFIG_ofono-tests is not set
 
 #
-# openamp-fw-echo-testd 
-#
-# CONFIG_openamp-fw-echo-testd is not set
-# CONFIG_openamp-fw-echo-testd-dev is not set
-# CONFIG_openamp-fw-echo-testd-dbg is not set
-
-#
-# openamp-fw-mat-muld 
-#
-# CONFIG_openamp-fw-mat-muld is not set
-# CONFIG_openamp-fw-mat-muld-dev is not set
-# CONFIG_openamp-fw-mat-muld-dbg is not set
-
-#
-# openamp-fw-rpc-demo 
-#
-# CONFIG_openamp-fw-rpc-demo is not set
-# CONFIG_openamp-fw-rpc-demo-dbg is not set
-# CONFIG_openamp-fw-rpc-demo-dev is not set
-
-#
 # opkg-arch-config 
 #
 # CONFIG_opkg-arch-config is not set
@@ -3064,7 +3043,7 @@ CONFIG_perf=y
 # sysfsutils 
 #
 CONFIG_sysfsutils=y
-# CONFIG_libsysfs is not set
+CONFIG_libsysfs=y
 # CONFIG_sysfsutils-dbg is not set
 # CONFIG_sysfsutils-dev is not set
 
@@ -3929,13 +3908,6 @@ CONFIG_u-boot-tools=y
 # CONFIG_packagegroup-networking-stack is not set
 # CONFIG_packagegroup-networking-stack-dbg is not set
 # CONFIG_packagegroup-networking-stack-dev is not set
-
-#
-# packagegroup-openamp 
-#
-# CONFIG_packagegroup-openamp is not set
-# CONFIG_packagegroup-openamp-dev is not set
-# CONFIG_packagegroup-openamp-dbg is not set
 
 #
 # packagegroup-opencv 
