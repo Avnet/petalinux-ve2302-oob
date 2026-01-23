@@ -32,7 +32,7 @@ FIRMWARE_DIR ?= final-firmwares
 # If you change VIVADO_DIR be sure to update get-git-hash.bb
 VIVADO_DIR ?= vivado-hw
 VIVADO_GIT_REPO ?= git@github.com:Avnet/ve2302_oob_hw
-VIVADO_GIT_BRANCH_TAG ?= main
+VIVADO_GIT_BRANCH_TAG ?= 2024.2
 VIVADO_XSA_LOC ?= $(VIVADO_DIR)/ve2302_oob.xsa
 PL_PACKAGE_LOC := $(shell which petalinux-package)
 WIC_LOC ?= $(FIRMWARE_DIR)/ve2302-oob-sdimage.wic
