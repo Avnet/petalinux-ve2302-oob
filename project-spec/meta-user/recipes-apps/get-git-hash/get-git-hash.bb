@@ -1,61 +1,57 @@
-#
-# This file is the get-git-hash recipe.
-#
-
-SUMMARY = "Fetch and emit the build's git infos into the rootfs"
-SECTION = "PETALINUX/apps"
+SUMMARY = "Custom build information for RootFS"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-# Point S (source) to the directory containing the recipe
-S = "${WORKDIR}"
-
-# Define the target path and filename in the rootfs
+# Define the target path and filename
 GIT_COMMIT_FILE = "build_git_info.txt"
-GIT_COMMIT_PATH = "/etc"
+GIT_COMMIT_PATH = "${sysconfdir}"
 BDF_DIR = "bdf_local"
 
+# Force the recipe to re-run every build to capture the latest Git state
+do_compile[nostamp] = "1"
+
+# Locate the project root (one level up from the 'build' directory)
+PROJ_ROOT = "${@os.path.abspath(os.path.join(d.getVar('TOPDIR'), '..'))}"
+HW_DIR = "${PROJ_ROOT}/vivado-hw"
+
 do_compile() {
-    # 1. Temporarily change directory to the PetaLinux project root
-    cd ${S}/../..
+    OUT="${S}/${GIT_COMMIT_FILE}"
 
-    # 2. Get the descriptive version string (tag-commits-hash-dirty)
-    #    We use un-escaped backticks (`...`) as confirmed working in 2024.2.
-    GIT_VERSION=`git describe --always --dirty --tags`
+    # Fix for Git 'dubious ownership' in BitBake environment
+    export GIT_CONFIG_COUNT=1
+    export GIT_CONFIG_KEY_0="safe.directory"
+    export GIT_CONFIG_VALUE_0="*"
 
-    # 3. Get the remote origin URL
-    GIT_URL=`git config --get remote.origin.url`
+    # 1. PetaLinux Project Info
+    echo "--- PetaLinux Info ---" > ${OUT}
+    echo "Version: $(git -C ${PROJ_ROOT} describe --always --dirty --tags 2>/dev/null)" >> ${OUT}
+    echo "URL: $(git -C ${PROJ_ROOT} remote get-url origin 2>/dev/null)" >> ${OUT}
 
-    # 4. Write the version to the file
-    echo "Version: $GIT_VERSION" > ${S}/${GIT_COMMIT_FILE}
-
-    # 5. Append the URL to the file
-    echo "URL: $GIT_URL" >> ${S}/${GIT_COMMIT_FILE}
-
-    # 6. cd to the Vivado prj
-    PROJECT_ROOT=`dirname ${TOPDIR}`
-    TARGET_DIR="${PROJECT_ROOT}/vivado-hw"
-    cd $TARGET_DIR
-
-    # 7. Write the version to the file
-    echo "Version: $GIT_VERSION" >> ${S}/${GIT_COMMIT_FILE}
-
-    # 8. Append the URL to the file
-    echo "URL: $GIT_URL" >> ${S}/${GIT_COMMIT_FILE}
-
-    # 9. Check for optional but usually present bdf repo info
-    if [ -d "$TARGET_DIR/$BDF_DIR" ]; then
-        cd "$TARGET_DIR/$BDF_DIR"
-        echo "Version: $GIT_VERSION" >> ${S}/${GIT_COMMIT_FILE}
-        echo "URL: $GIT_URL" >> ${S}/${GIT_COMMIT_FILE}
+    # 2. Vivado Hardware Info
+    if [ -d "${HW_DIR}" ]; then
+        echo "" >> ${OUT}
+        echo "--- Vivado HW Info ---" >> ${OUT}
+        echo "Version: $(git -C ${HW_DIR} describe --always --dirty --tags 2>/dev/null || echo 'Not a Git repo')" >> ${OUT}
+        echo "URL: $(git -C ${HW_DIR} remote get-url origin 2>/dev/null || echo 'N/A')" >> ${OUT}
     fi
 
-    # 10. Return to the starting directory
-    cd -
+    # 3. BDF Repo Info (Optional)
+    if [ -d "${HW_DIR}/${BDF_DIR}" ]; then
+        echo "" >> ${OUT}
+        echo "--- BDF Info ---" >> ${OUT}
+        echo "Version: $(git -C ${HW_DIR}/${BDF_DIR} describe --always --dirty --tags 2>/dev/null)" >> ${OUT}
+        echo "URL: $(git -C ${HW_DIR}/${BDF_DIR} remote get-url origin 2>/dev/null)" >> ${OUT}
+    fi
+
+    # Debug: Output to console log so you can verify without searching folders
+    echo "DEBUG: Generated File Content:"
+    cat ${OUT}
 }
 
-# Install the generated file into the rootfs
 do_install() {
     install -d ${D}${GIT_COMMIT_PATH}
     install -m 0644 ${S}/${GIT_COMMIT_FILE} ${D}${GIT_COMMIT_PATH}/${GIT_COMMIT_FILE}
 }
+
+# This ensures the file is actually included in the final package
+FILES:${PN} += "${GIT_COMMIT_PATH}/${GIT_COMMIT_FILE}"
